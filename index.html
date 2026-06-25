@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -20,8 +21,9 @@
     <a href="#how">How it works</a>
     <a href="#services">Services</a>
     <a href="#reviews">Reviews</a>
+    <a href="#schedule">Schedule</a>
   </div>
-  <a class="nav-cta" href="#booking">Get a Free Quote</a>
+  <a class="nav-cta" href="#schedule">Book Estimate</a>
 </nav>
 
 <!-- HERO -->
@@ -31,7 +33,7 @@
     <h1>Philly homes deserve better.<br><em>Yours does too.</em></h1>
     <p class="hero-sub">Real W-2 employees — not gig workers — who know Fishtown rowhouses, Rittenhouse condos, and South Philly twins inside and out. Fully insured. Always the same team. No drama.</p>
     <div class="hero-actions">
-      <a href="#booking" class="btn-primary">Get a Free Quote &rarr;</a>
+      <a href="#schedule" class="btn-primary">Book Free Estimate &rarr;</a>
       <a href="#how" class="btn-secondary">See how it works ↓</a>
     </div>
     <div class="hero-trust">
@@ -82,34 +84,31 @@
     <div class="how-card">
       <div class="how-num">01</div>
       <h3>Book in 2 minutes, flat</h3>
-      <p>Fill out the quick form, pick your service and date. A real person — not a bot — confirms your quote within 2 hours. No phone call required.</p>
+      <p>Pick your date and time on the calendar below. A real person — not a bot — confirms your estimate appointment within 2 hours.</p>
     </div>
     <div class="how-card">
       <div class="how-num">02</div>
-      <h3>Leave a key. We handle everything.</h3>
-      <p>Your same Gold team arrives on time with all supplies. Leave a lockbox or door code and go live your life. You don't have to be there.</p>
+      <h3>We come to you for a free estimate</h3>
+      <p>A Gold team member walks through your home, understands your needs, and gives you an exact price. No surprises, no pressure.</p>
     </div>
     <div class="how-card">
       <div class="how-num">03</div>
       <h3>Come home to a house that smells clean</h3>
-      <p>If anything isn't right within 24 hours, we come back and fix it at no cost. That's The Gold Promise — and we keep it every time.</p>
+      <p>Once you're happy with the quote, your first cleaning is scheduled. If anything isn't right within 24 hours, we come back free.</p>
     </div>
   </div>
 </section>
 
-<!-- SERVICES: INTERACTIVE PRICE CALCULATOR -->
+<!-- SERVICES -->
 <section class="svc-section" id="services">
   <div class="section-label">Services &amp; pricing</div>
   <h2 class="section-title">See your price<br>in seconds.</h2>
   <p class="section-sub">Choose your frequency, home size, and cleaning type. The estimated price updates instantly.</p>
-
-  <!-- PRICE CALCULATOR -->
   <div class="price-calculator">
     <div class="calc-header">
       <h3>Instant Price Calculator</h3>
       <p>Select your options below — the price updates live.</p>
     </div>
-
     <div class="calc-inputs">
       <div class="form-group">
         <label for="freq">How often?</label>
@@ -136,43 +135,27 @@
         </select>
       </div>
     </div>
-
     <div class="calc-result">
       <div class="result-label">Estimated price per visit</div>
       <div class="result-price" id="resultPrice">$120 – $140</div>
       <div class="result-details" id="resultDetails">Bi-Weekly • Standard Clean</div>
     </div>
-
-    <p class="calc-note">
-      This is an estimate based on average homes. Final quote may vary depending on the condition of your home.
-      We'll send you an exact price within 2 hours of booking.
-    </p>
+    <p class="calc-note">This is an estimate. Your exact quote is confirmed at the free in-home estimate — no surprises.</p>
   </div>
-
   <div style="max-width: 820px; margin: 56px auto 0;">
     <div class="section-label" style="color: var(--gold-light); text-align: center; margin-bottom: 8px;">One-time services</div>
-
     <div class="one-time-grid">
       <div class="svc-card">
         <div class="svc-icon">🔬</div>
         <h3>One-Time Deep Clean</h3>
         <p>Top-to-bottom thorough cleaning. Inside appliances, baseboards, grout lines and hard-to-reach areas.</p>
-        <div class="svc-price">
-          <span class="from">from</span>
-          <span class="amount">$220</span>
-          <span class="per">/ visit</span>
-        </div>
+        <div class="svc-price"><span class="from">from</span><span class="amount">$220</span><span class="per">/ visit</span></div>
       </div>
-
       <div class="svc-card">
         <div class="svc-icon">📦</div>
         <h3>Move-In / Move-Out</h3>
         <p>Landlord-ready clean. Includes inside all cabinets, drawers, appliances and interior windows.</p>
-        <div class="svc-price">
-          <span class="from">from</span>
-          <span class="amount">$280</span>
-          <span class="per">/ visit</span>
-        </div>
+        <div class="svc-price"><span class="from">from</span><span class="amount">$280</span><span class="per">/ visit</span></div>
       </div>
     </div>
   </div>
@@ -271,75 +254,129 @@
   </div>
 </section>
 
-<!-- BOOKING FORM -->
-<section class="form-section" id="booking">
-  <div class="form-inner">
-    <div class="section-label" style="text-align:center;">Get your free quote</div>
-    <h2 class="section-title" style="text-align:center;">Get your price in 2 minutes.<br>A real person confirms within 2 hours.</h2>
-    <p class="section-sub" style="text-align:center; margin:0 auto;">No commitment, no pressure. A Gold team member will confirm your quote within 2 hours.</p>
-    <div class="form-box">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="fname">First name</label>
-          <input type="text" id="fname" placeholder="Sarah">
+<!-- SCHEDULING SECTION -->
+<section class="schedule-section" id="schedule">
+  <div class="schedule-inner">
+    <div class="section-label" style="text-align:center;">Free estimate appointment</div>
+    <h2 class="section-title" style="text-align:center;">Pick a date.<br><em>We'll be there.</em></h2>
+    <p class="section-sub" style="text-align:center; margin: 0 auto 48px;">Choose a day and time that works for you. A Gold team member visits your home, walks through it, and gives you an exact price — free, no pressure.</p>
+
+    <div class="scheduler-box">
+      <!-- STEP INDICATOR -->
+      <div class="steps-bar">
+        <div class="step active" id="step-ind-1"><span>1</span> Date &amp; Time</div>
+        <div class="step-sep">→</div>
+        <div class="step" id="step-ind-2"><span>2</span> Your Info</div>
+        <div class="step-sep">→</div>
+        <div class="step" id="step-ind-3"><span>3</span> Confirmed</div>
+      </div>
+
+      <!-- STEP 1: CALENDAR + TIME -->
+      <div id="step1" class="sched-step">
+        <div class="sched-step-layout">
+          <!-- CALENDAR -->
+          <div class="calendar-wrap">
+            <div class="cal-nav">
+              <button class="cal-arrow" id="prevMonth">&#8249;</button>
+              <span class="cal-month-label" id="calMonthLabel"></span>
+              <button class="cal-arrow" id="nextMonth">&#8250;</button>
+            </div>
+            <div class="cal-grid">
+              <div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div>
+              <div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div>
+              <div id="calDays"></div>
+            </div>
+          </div>
+
+          <!-- TIME SLOTS -->
+          <div class="time-wrap">
+            <div class="time-label" id="timePanelLabel">Select a date to see available times</div>
+            <div class="time-slots" id="timeSlots"></div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="lname">Last name</label>
-          <input type="text" id="lname" placeholder="Johnson">
+        <div class="sched-selected" id="selectedDisplay" style="display:none;">
+          <span class="sel-icon">📅</span>
+          <span id="selectedText"></span>
+        </div>
+        <button class="sched-btn" id="toStep2Btn" disabled>Continue →</button>
+      </div>
+
+      <!-- STEP 2: CONTACT INFO -->
+      <div id="step2" class="sched-step" style="display:none;">
+        <div class="sched-recap" id="schedRecap"></div>
+        <div class="sched-form">
+          <div class="sched-row">
+            <div class="sched-field">
+              <label>First name</label>
+              <input type="text" id="sFname" placeholder="Sarah">
+            </div>
+            <div class="sched-field">
+              <label>Last name</label>
+              <input type="text" id="sLname" placeholder="Johnson">
+            </div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-field">
+              <label>Email</label>
+              <input type="email" id="sEmail" placeholder="you@email.com">
+            </div>
+            <div class="sched-field">
+              <label>Phone</label>
+              <input type="tel" id="sPhone" placeholder="(215) 555-0100">
+            </div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-field">
+              <label>Service you're interested in</label>
+              <select id="sService">
+                <option value="">Choose one...</option>
+                <option>Recurring Standard Clean</option>
+                <option>Recurring Deep Clean</option>
+                <option>One-Time Deep Clean</option>
+                <option>Move-In / Move-Out Clean</option>
+                <option>Not sure — I want a recommendation</option>
+              </select>
+            </div>
+            <div class="sched-field">
+              <label>Philadelphia neighborhood</label>
+              <select id="sHood">
+                <option value="">Choose neighborhood...</option>
+                <option>Rittenhouse Square</option>
+                <option>Center City</option>
+                <option>Fishtown</option>
+                <option>South Philadelphia</option>
+                <option>Northern Liberties</option>
+                <option>Chestnut Hill</option>
+                <option>Manayunk</option>
+                <option>West Philadelphia</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="sched-field" style="margin-bottom:20px;">
+            <label>Anything we should know? (optional)</label>
+            <textarea id="sNotes" rows="3" placeholder="e.g. I have two cats, there's a lockbox at the door, I prefer eco-friendly products..."></textarea>
+          </div>
+          <div class="sched-btns">
+            <button class="sched-btn-back" id="backToStep1">← Back</button>
+            <button class="sched-btn" id="submitBtn">Confirm My Appointment →</button>
+          </div>
+          <div id="formError" class="form-error" style="display:none;"></div>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="you@email.com">
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" placeholder="(215) 555-0100">
-        </div>
-      </div>
-      <div class="form-row" style="margin-bottom:16px;">
-        <div class="form-group">
-          <label for="service">Service type</label>
-          <select id="service">
-            <option value="">Choose a service...</option>
-            <option>Bi-Weekly Standard Clean</option>
-            <option>Bi-Weekly Deep Clean</option>
-            <option>Monthly Standard Clean</option>
-            <option>One-Time Deep Clean</option>
-            <option>Move-In / Move-Out Clean</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="size">Home size</label>
-          <select id="size">
-            <option value="">Choose size...</option>
-            <option>Studio / 1 bedroom</option>
-            <option>2 bedrooms</option>
-            <option>3 bedrooms</option>
-            <option>4+ bedrooms</option>
-          </select>
+
+      <!-- STEP 3: CONFIRMATION -->
+      <div id="step3" class="sched-step" style="display:none;">
+        <div class="confirm-wrap">
+          <div class="confirm-icon">✦</div>
+          <h3>You're all set!</h3>
+          <p class="confirm-msg" id="confirmMsg"></p>
+          <div class="confirm-details" id="confirmDetails"></div>
+          <p class="confirm-note">A confirmation email is on its way to your inbox. If you need to reschedule, call us at <a href="tel:2155550100">(215) 555-0100</a> — no fees, no drama.</p>
+          <a href="#services" class="sched-btn" style="display:inline-block; text-decoration:none; text-align:center; margin-top:8px;">← Browse our services</a>
         </div>
       </div>
-      <div class="form-group" style="margin-bottom:20px;">
-        <label for="hood">Your Philadelphia neighborhood</label>
-        <select id="hood">
-          <option value="">Choose neighborhood...</option>
-          <option>Rittenhouse Square</option>
-          <option>Center City</option>
-          <option>Fishtown</option>
-          <option>South Philadelphia</option>
-          <option>Northern Liberties</option>
-          <option>Chestnut Hill</option>
-          <option>Manayunk</option>
-          <option>West Philadelphia</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <button class="form-btn" onclick="alert('Thank you! A Gold Cleaning Services team member will contact you within 2 hours with your personalized quote. ✦')">
-        Send My Info — Get a Quote &rarr;
-      </button>
-      <p class="form-note">🔒 Your information is safe. We only use it to send your quote — no spam, ever.</p>
+
     </div>
   </div>
 </section>
@@ -386,13 +423,12 @@
     <a href="#how">How it works</a>
     <a href="#services">Services</a>
     <a href="#reviews">Reviews</a>
-    <a href="#booking">Book now</a>
+    <a href="#schedule">Book now</a>
     <a href="tel:2155550100">(215) 555-0100</a>
   </div>
   <p class="footer-copy">© 2026 Gold Cleaning Services. Philadelphia, PA. All rights reserved.</p>
 </footer>
 
 <script src="assets/js/main.js"></script>
-
 </body>
 </html>
